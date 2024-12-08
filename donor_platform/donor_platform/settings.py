@@ -26,7 +26,8 @@ SECRET_KEY = os.getenv('MY_SECRET_KEY', 'django-insecure-x7#wek*#k(_y@bhtfl25fv(
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', ).split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+
 
 
 # Application definition
@@ -152,7 +153,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = "app.CustomUser"
 
@@ -178,7 +179,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    *
+    "https://example.com",
+    "http://localhost:8000",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
